@@ -1,0 +1,28 @@
+<div class="form-group" id="candidateUpdateModal" tabindex="-1" role="dialog" aria-labelledby="CandidateModalLabel"
+     aria-hidden="true" *ngIf="candidateOutDto">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CandidateModalLabel">Update Candidate</h5>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="candidateForm" class="form-control" (ngSubmit)="onSubmit()" [formGroup]="candidateForm">
+          <label for="InputName">Name</label>
+          <input type="text" class="form-control" id="InputName" formControlName="name" name="name"
+                 required>
+          <label for="InputEmail">Email</label>
+          <input type="text" class="form-control" id="InputEmail" formControlName="email"
+                 name="email" required>
+          <label for="InputImageUrl">Image URL</label>
+          <input type="text" class="form-control" id="InputImageUrl"
+                 formControlName="imageUrl"
+                 name="imageUrl" required>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="cancel" (click)="navigateToAllCandidates()">Close</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!candidateForm?.valid">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

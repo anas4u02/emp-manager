@@ -1,0 +1,39 @@
+<button type="button" id="addButton" class="btn btn-primary" data-toggle="modal" routerLink="/experience-add">
+  Add Experience
+</button>
+
+<div class="row">
+  <div *ngFor="let experienceOutDto of experienceOutDtos" class="col-md-6 col-xl-3">
+    <div class="card m-b-30">
+      <div class="card-body row">
+        <div class="col-6">
+          <a href=""><img src="{{experienceOutDto?.candidateOutDto?.imageUrl}}" alt=""
+                          class="img-fluid rounded-circle w-60"></a>
+        </div>
+        <div class="col-6 card-title align-self-center mb-0">
+          <h5>{{experienceOutDto?.candidateOutDto?.name}}</h5>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><strong>Email: </strong><i
+          class="fa fa-envelope float-right"></i>{{experienceOutDto?.candidateOutDto?.email}}</li>
+        <li class="list-group-item"><strong>Title: </strong><i
+          class="fa fa-envelope float-right"></i>{{experienceOutDto?.designationOutDto?.title}}</li>
+        <li class="list-group-item"><strong>Employment Type: </strong><i
+          class="fa fa-envelope float-right"></i>{{experienceOutDto?.designationOutDto?.employmentType}}</li>
+        <li class="list-group-item"><strong>Location Type: </strong><i
+          class="fa fa-envelope float-right"></i>{{experienceOutDto?.designationOutDto?.locationType}}</li>
+        <li class="list-group-item"><strong>Organisation: </strong><i
+          class="fa fa-envelope float-right"></i>{{experienceOutDto?.organisationName}}</li>
+      </ul>
+      <div class="card-body">
+        <div class="float-right btn-group btn-group-sm">
+          <a (click)="navigateToExperienceUpdate(experienceOutDto)" class="btn btn-primary tooltips"
+             data-placement="top" data-original-title="Edit">Edit<i class="fa fa-pencil"></i> </a>
+          <a (click)="experienceDelete(experienceOutDto)" class="btn btn-secondary tooltips" data-placement="top"
+             data-original-title="Delete">Delete<i class="fa fa-times"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

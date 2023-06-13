@@ -1,0 +1,28 @@
+<table class="table">
+  <thead>
+  <tr>
+    <th scope="col">#</th>
+    <th scope="col">Title</th>
+    <th scope="col">Location Type</th>
+    <th scope="col">Employment Type</th>
+    <th scope="col"></th>
+    <th scope="col"></th>
+  </tr>
+  </thead>
+  <tbody *ngFor="let designationOutDto of designationOutDtos">
+  <tr>
+    <th scope="row">{{designationOutDto.id}}</th>
+    <td>{{designationOutDto.title}}</td>
+    <td>{{designationOutDto.locationType}}</td>
+    <td>{{designationOutDto.employmentType}}</td>
+    <td>
+      <button class="btn btn-primary tooltips" data-placement="top" data-original-title="Edit"
+              (click)="navigateToDesignationUpdate(designationOutDto)">Edit<i class="fa fa-pencil"></i></button>
+    </td>
+    <td>
+      <button class="btn btn-secondary tooltips" data-placement="top" data-original-title="Delete"
+              (click)="designationDelete(designationOutDto)">Delete<i class="fa fa-times"></i></button>
+    </td>
+  </tr>
+  </tbody>
+</table>

@@ -1,0 +1,28 @@
+<div class="form-group" id="designationUpdateModal" tabindex="-1" role="dialog" aria-labelledby="DesignationModalLabel"
+     aria-hidden="true" *ngIf="designationOutDto">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="DesignationModalLabel">Update Designation</h5>
+      </div>
+      <div class="modal-body">
+        <form *ngIf="designationForm" class="form-control" (ngSubmit)="onSubmit()" [formGroup]="designationForm">
+          <label for="InputTitle">Title</label>
+          <input type="text" class="form-control" id="InputTitle" formControlName="title" name="title"
+                 required>
+          <label for="InputLocationType">Location Type</label>
+          <input type="text" class="form-control" id="InputLocationType" formControlName="locationType"
+                 name="location" required>
+          <label for="InputEmploymentType">Employment Type</label>
+          <input type="text" class="form-control" id="InputEmploymentType"
+                 formControlName="employmentType"
+                 name="employmentType" required>
+          <div class="modal-footer">
+            <button class="btn btn-secondary" type="cancel" (click)="navigateToAllDesignations()">Close</button>
+            <button class="btn btn-primary" type="submit" [disabled]="!designationForm?.valid">Save changes</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

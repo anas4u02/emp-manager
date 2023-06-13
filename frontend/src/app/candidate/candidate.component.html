@@ -1,0 +1,31 @@
+<button type="button" id="addButton" class="btn btn-primary" data-toggle="modal" routerLink="/candidate-add">
+  Add Candidate
+</button>
+
+<div class="container mt-5 mb-5" id="exampleModal">
+<div class="row">
+  <div *ngFor="let candidateOutDto of candidateOutDtos" class="col-md-6 col-xl-3">
+    <div class="card m-b-30">
+      <div class="card-body row">
+        <div class="col-6">
+          <a href=""><img src="{{candidateOutDto?.imageUrl}}" alt="" class="img-fluid rounded-circle w-60"></a>
+        </div>
+        <div class="col-6 card-title align-self-center mb-0">
+          <h5>{{candidateOutDto?.name}}</h5>
+        </div>
+      </div>
+      <ul class="list-group list-group-flush">
+        <li class="list-group-item"><i class="fa fa-envelope float-right"></i>{{candidateOutDto?.email}}</li>
+      </ul>
+      <div class="card-body">
+        <div class="float-right btn-group btn-group-sm">
+          <a (click)="navigateToCandidateUpdate(candidateOutDto)" class="btn btn-primary tooltips" data-placement="top"
+             data-original-title="Edit">Edit<i class="fa fa-pencil"></i></a>
+          <a (click)="candidateDelete(candidateOutDto)" class="btn btn-secondary tooltips" data-placement="top"
+             data-original-title="Delete">Delete<i class="fa fa-times"></i></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
